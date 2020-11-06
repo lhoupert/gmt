@@ -384,7 +384,11 @@ leading hyphen (-) then each integer item (y,m,d) will be printed
 without leading zeros (default uses fixed width formats). As
 examples, try hh:mm, hh.mm.ss, hh:mm:ss.xxxx, hha.m., etc.
 [hh:mm:ss]. If the format is simply - then no clock is output and
-the ISO T divider between date and clock is omitted.</p>
+the ISO T divider between date and clock is omitted.  <strong>Note</strong>: When
+high-precision time-series are written to ASCII output the default
+format may not be adequate.  Many modules automatically handle
+this by extending the format, but you should be alert of unusual
+situations where data may appear truncated to nearest second.</p>
 </dd>
 <dt id="term-FORMAT_DATE_IN"><strong>FORMAT_DATE_IN</strong></dt><dd><p>Formatting template that indicates how an input date string is
 formatted. This template is then used to guide the reading of date
@@ -533,7 +537,9 @@ e.g., 4-6. If 4 is set we will parse obsolete GMT 4 options and issue warnings; 
 is set then parsing GMT 4 only syntax will result in errors [4]; likewise
 for 6: obsolete syntax from early GMT 5 will be considered errors.</p>
 </dd>
-<dt id="term-GMT_DATA_SERVER"><strong>GMT_DATA_SERVER</strong></dt><dd><p>Address of the data directory on the remote server [The SOEST server].</p>
+<dt id="term-GMT_DATA_SERVER"><strong>GMT_DATA_SERVER</strong></dt><dd><p>URL of the GMT data server [The <strong>Oceania</strong> server].</p>
+<p>Visit <a class="reference external" href="https://www.generic-mapping-tools.org/mirrors/">https://www.generic-mapping-tools.org/mirrors/</a> for a list of
+active mirrors of the GMT data server.</p>
 </dd>
 <dt id="term-GMT_DATA_SERVER_LIMIT"><strong>GMT_DATA_SERVER_LIMIT</strong></dt><dd><p>Upper limit on the size of remote file to download [unlimited].  Give
 the maximum file size in bytes, or append k, m, or g for kilo-, mega-,
@@ -933,7 +939,7 @@ to -2) are allowed as well [0].</p>
 <dl class="glossary">
 <dt id="term-PROJ_AUX_LATITUDE"><strong>PROJ_AUX_LATITUDE</strong></dt><dd><p>Only applies when geodesics are approximated by great circle
 distances on an equivalent sphere. Select from authalic, geocentric,
-conformal, meridional, parametric, or none [authalic]. When not none
+conformal, meridional, parametric, or none (i.e., geodetic) [authalic]. When not none
 we convert any latitude used in the great circle calculation to the
 chosen auxiliary latitude before doing the distance calculation. See
 also <a class="reference internal" href="#term-PROJ_MEAN_RADIUS"><span class="xref std std-term">PROJ_MEAN_RADIUS</span></a>.</p>
@@ -1433,7 +1439,7 @@ correspond to 1800 through 1828. [1950].</p>
         
         &copy; Copyright 2020, The GMT Team.
       <span class="lastupdated">
-        Last updated on Sep 20, 2020.
+        Last updated on Nov 06, 2020.
       </span>
 
     </p>
